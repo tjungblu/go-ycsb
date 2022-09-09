@@ -1,0 +1,25 @@
+# Workload: Mixed workload
+#
+#   Insert/Read/update ratio: 20/30/50
+#   Default data size: 1 KB records (10 fields, 100 bytes each, plus key)
+#   Request distribution: zipfian
+
+# dropdata=true
+# 128mb memstore to make it deliberately go more often to disk
+gosstables.memstoreSizeBytes=134217728
+
+recordcount=1000000
+operationcount=1000000
+workload=core
+
+readallfields=true
+
+insertproportion=0.2
+readproportion=0.3
+updateproportion=0.5
+
+# scans are not supported yet
+scanproportion=0
+
+requestdistribution=uniform
+
